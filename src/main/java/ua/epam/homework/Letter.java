@@ -1,30 +1,45 @@
 package ua.epam.homework;
 
-import java.util.InputMismatchException;
-import java.util.Random;
+import ua.epam.homework.tools.GameTools;
+
+import java.io.InputStream;
+import java.io.PrintStream;
 import java.util.Scanner;
 
 public class Letter {
 
-	private Integer  attempts = 0;
-	private Character  secretCharacter;
+	private final Character secretCharacter;
+	private final String verifyingPattern;
+
+	private PrintStream printStream;
+	private Scanner inputScanner;
+
+	private Integer attempts = 0;
+
 	public static void main(String[] args) {
 		Letter letter = new Letter();
 		letter.playGame();
-
 	}
 
-	private Character userCharacterRead(){
-		Scanner inputScanner = new Scanner(System.in);
-		System.out.print("Guess a char: ");
-		try {
-			String inputString = inputScanner.next("[a-zA-z]");
-			return inputString.toLowerCase().charAt(0);
-		}catch (InputMismatchException exception){
-			System.out.println("You can type only one char (a-z or A-z)");
-			return userCharacterRead();
-		}
+	public Letter() {
+		this(GameTools.randomChar("qwertyuiopasdfghjklzxcvbnm"),"[a-zA-z]",System.out,System.in);
+	}
 
+	public Letter(Character secretCharacter,String verifyingPattern, PrintStream printStream, InputStream inputStream) {
+		this.verifyingPattern = verifyingPattern;
+		this.secretCharacter = prepareCharacter(secretCharacter);
+		this.printStream = printStream;
+		inputScanner = new Scanner(inputStream);
+	}
+
+	protected Character prepareCharacter(Character character){
+		return Character.toLowerCase(character);
+	}
+
+
+	protected Character readUserChar(String pattern){
+		Character userInput = GameTools.readChar(printStream,inputScanner,pattern);
+		return prepareCharacter(userInput);
 	}
 
 	private boolean isLetterRight(Character userInput){
@@ -37,30 +52,22 @@ public class Letter {
 		}
 	}
 
-	private void giveHint(Character userInput){
+	protected void giveHint(Character userInput){
 		if(userInput.compareTo(secretCharacter)>0){
-			System.out.println("Too low");
-		}else{
-			System.out.println("Too high");
+			printStream.println("Too low");
+		}else if(userInput.compareTo(secretCharacter)<0){
+			printStream.println("Too high");
 		}
-
 	}
 
 	public void playGame(){
-		initGame();
 		Character userInput;
 		do {
-			userInput = userCharacterRead();
+			userInput = readUserChar(verifyingPattern);
 			attempts++;
-		}while(isLetterRight(userInput)==false);
-		System.out.println("You win!");
-		System.out.println("User attempts: "+ attempts);
-	}
-
-	private void initGame(){
-		String chars = "qwertyuiopasdfghjklzxcvbnm";
-		Random rnd = new Random();
-		secretCharacter = chars.charAt(rnd.nextInt(chars.length()));
+		}while(!isLetterRight(userInput));
+		printStream.println("You win!");
+		printStream.println("Attempts: "+ attempts);
 	}
 
 }
