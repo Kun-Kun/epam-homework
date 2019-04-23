@@ -38,6 +38,7 @@ public class Letter {
 
 
 	protected Character readUserChar(String pattern){
+		printStream.print("Guess a char: ");
 		Character userInput = GameTools.readChar(printStream,inputScanner,pattern);
 		return prepareCharacter(userInput);
 	}

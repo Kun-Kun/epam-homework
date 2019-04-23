@@ -6,12 +6,15 @@ import java.util.Scanner;
 
 public class GameTools {
 	public static Character randomChar(String chars){
+		return chars.charAt(chars.length());
+	}
+
+	public static int randomInt(int to){
 		Random rnd = new Random();
-		return chars.charAt(rnd.nextInt(chars.length()));
+		return rnd.nextInt(to);
 	}
 
 	public static Character readChar(PrintStream printStream, Scanner inputScanner, String pattern){
-		printStream.print("Guess a char: ");
 		String inputString = inputScanner.nextLine();
 		if(inputString.matches(pattern)) {
 			return inputString.charAt(0);
