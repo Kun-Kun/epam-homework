@@ -7,6 +7,7 @@ import java.util.*;
 
 public class WineCatalog {
 	private List<WineInformation> wineList = new ArrayList<>();
+        
 	public void addWine(WineInformation wine){
 		wineList.add(wine);
 	}
@@ -19,10 +20,14 @@ public class WineCatalog {
 		return new ArrayList<>(wineList);
 	}
 
+	public static int calculateAging(LocalDate currentDate, LocalDate wineDate){
+		return Period.between(wineDate,currentDate).getYears();
+	}
+	
 	public static int calculateWineAging(WineInformation wineInformation){
 		LocalDate currentDate = convertToLocalDateViaInstant(Calendar.getInstance());
 		LocalDate wineDate = convertToLocalDateViaInstant(wineInformation.getBottlingDate());
-		return Period.between(wineDate,currentDate).getYears();
+		return calculateAging(currentDate, wineDate);
 	}
 
 
@@ -32,11 +37,11 @@ public class WineCatalog {
 				.toLocalDate();
 	}
 
-	public String getWineInformationAsString(WineInformation wineInformation){
+	public static String getWineInformationAsString(WineInformation wineInformation){
 		StringBuilder builder = new StringBuilder();
 		builder.append(wineInformation.getName())
 				.append(" from ")
-				.append(wineInformation.getCountry())
+                .append(wineInformation.getCountry())
 				.append(" has ")
 				.append(WineCatalog.calculateWineAging(wineInformation))
 				.append(" years.");

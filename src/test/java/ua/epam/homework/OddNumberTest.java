@@ -12,4 +12,9 @@ public class OddNumberTest {
 		Assert.assertEquals(15,OddNumber.findOddNumber(numbers));
 	}
 
+	@Test
+	public void findInEmptyArray() throws Exception {
+		int[] numbers ={};
+		Assert.assertEquals(Integer.MIN_VALUE,OddNumber.findOddNumber(numbers));
+	}
 }

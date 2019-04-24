@@ -1,6 +1,7 @@
 package ua.epam.homework;
 
 public class OddNumber {
+	
 	public static int findOddNumber(int[] numbers){
 		int highest = Integer.MIN_VALUE;
 		for (int number: numbers){
