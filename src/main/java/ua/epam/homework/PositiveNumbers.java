@@ -83,6 +83,5 @@ public class PositiveNumbers {
 		System.out.println(getMaxAvgPositiveNumberAlt(array));
 		System.out.println(getMaxAvgPositiveNumber(array));
 		
-		//System.out.println(PositiveNumbers.getMaxAvgPositiveNumber(array));
 	}
 }
