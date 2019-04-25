@@ -27,5 +27,21 @@ public class Card implements Comparable<Card>{
 
 	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (!(o instanceof Card)) return false;
 
+		Card card = (Card) o;
+
+		if (suit != card.suit) return false;
+		return getRank() == card.getRank();
+	}
+
+	@Override
+	public int hashCode() {
+		int result = suit.hashCode();
+		result = 31 * result + getRank().hashCode();
+		return result;
+	}
 }
