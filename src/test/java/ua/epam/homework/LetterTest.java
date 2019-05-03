@@ -4,11 +4,10 @@ package ua.epam.homework;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+import ua.epam.homework.first.Letter;
 
 import java.io.*;
 import java.util.*;
-import java.util.concurrent.Callable;
-import java.util.function.Consumer;
 
 public class LetterTest {
 

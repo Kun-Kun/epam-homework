@@ -1,4 +1,4 @@
-package ua.epam.homework.twentyone;
+package ua.epam.homework.first.twentyone;
 
 public class Card implements Comparable<Card>{
 	private final Suit suit;

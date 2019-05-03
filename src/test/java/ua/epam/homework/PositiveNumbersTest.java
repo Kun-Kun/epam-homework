@@ -2,7 +2,7 @@ package ua.epam.homework;
 
 import org.junit.Assert;
 import org.junit.Test;
-
+import ua.epam.homework.first.PositiveNumbers;
 
 
 public class PositiveNumbersTest {

@@ -1,4 +1,4 @@
-package ua.epam.homework.WineCatalog;
+package ua.epam.homework.first.WineCatalog;
 
 import java.time.LocalDate;
 import java.time.Period;

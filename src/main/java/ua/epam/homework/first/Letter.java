@@ -1,6 +1,6 @@
-package ua.epam.homework;
+package ua.epam.homework.first;
 
-import ua.epam.homework.tools.GameTools;
+import ua.epam.homework.first.tools.GameTools;
 
 import java.io.InputStream;
 import java.io.PrintStream;

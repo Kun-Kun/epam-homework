@@ -1,4 +1,4 @@
-package ua.epam.homework.twentyone;
+package ua.epam.homework.first.twentyone;
 
 import org.junit.Assert;
 import org.junit.Before;

@@ -1,4 +1,4 @@
-package ua.epam.homework.tools;
+package ua.epam.homework.first.tools;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -11,8 +11,6 @@ import java.util.HashSet;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.Set;
-
-import static org.junit.Assert.*;
 
 public class GameToolsTest {
 	@Test

@@ -1,6 +1,6 @@
-package ua.epam.homework.twentyone;
+package ua.epam.homework.first.twentyone;
 
-import ua.epam.homework.tools.GameTools;
+import ua.epam.homework.first.tools.GameTools;
 
 import java.util.Collections;
 import java.util.LinkedList;

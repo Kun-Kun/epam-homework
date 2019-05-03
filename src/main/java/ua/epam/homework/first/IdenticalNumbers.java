@@ -1,4 +1,4 @@
-package ua.epam.homework;
+package ua.epam.homework.first;
 
 import java.util.Arrays;
 import java.util.Date;

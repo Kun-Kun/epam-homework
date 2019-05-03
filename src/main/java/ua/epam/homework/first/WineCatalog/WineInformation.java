@@ -1,7 +1,6 @@
-package ua.epam.homework.WineCatalog;
+package ua.epam.homework.first.WineCatalog;
 
 import java.util.Calendar;
-import java.util.Date;
 
 
 public class WineInformation {

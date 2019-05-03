@@ -1,4 +1,4 @@
-package ua.epam.homework.twentyone;
+package ua.epam.homework.first.twentyone;
 
 public enum Rank {
 	ACE, TWO, THREE, FOUR, FIVE, SIX, SEVEN, EIGHT, NINE, TEN, JACK, QUEEN, KING;

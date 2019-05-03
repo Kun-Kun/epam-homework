@@ -1,4 +1,4 @@
-package ua.epam.homework.tools;
+package ua.epam.homework.first.tools;
 
 import java.io.PrintStream;
 import java.util.Random;
