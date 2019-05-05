@@ -1,4 +1,4 @@
-package ua.epam.homework;
+package ua.epam.homework.first;
 
 import org.junit.Assert;
 import org.junit.Test;

@@ -1,10 +1,9 @@
-package ua.epam.homework;
+package ua.epam.homework.first;
 
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import ua.epam.homework.first.Letter;
 
 import java.io.*;
 import java.util.*;

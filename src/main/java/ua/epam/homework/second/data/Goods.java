@@ -1,8 +1,16 @@
-package ua.epam.homework.second;
+package ua.epam.homework.second.data;
+
+import ua.epam.homework.second.api.Buyable;
 
 public class Goods implements Buyable {
 	private String name;
 	private Float price;
+
+	public Goods(String name, Float price) {
+		this.name = name;
+		this.price = price;
+	}
+
 
 	@Override
 	public String getName() {
@@ -23,4 +31,8 @@ public class Goods implements Buyable {
 	}
 
 
+	@Override
+	public String toString() {
+		return name + " - " + price;
+	}
 }

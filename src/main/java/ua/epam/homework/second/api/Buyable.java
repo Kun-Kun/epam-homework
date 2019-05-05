@@ -1,4 +1,4 @@
-package ua.epam.homework.second;
+package ua.epam.homework.second.api;
 
 public interface Buyable {
 	Float getPrice();
