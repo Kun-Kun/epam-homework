@@ -20,7 +20,9 @@ public class SimpleStore implements Shop {
 
 	@Override
 	public void putProduct(Buyable product){
-		goods.add(product);
+		if(product!=null){
+			goods.add(product);
+		}
 	}
 
 	@Override

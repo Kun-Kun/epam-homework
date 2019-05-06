@@ -1,5 +1,6 @@
 package ua.epam.homework.second.impl.shoppers;
 
+import java.util.ArrayList;
 import ua.epam.homework.second.api.Buyable;
 import ua.epam.homework.second.api.ShopForUser;
 import ua.epam.homework.second.api.Shopper;
@@ -32,6 +33,10 @@ public class ShopWalkerShopper implements Shopper {
 
 	public void memorizeShop(ShopForUser shop) {
 		this.knownShops.add(shop);
+	}
+	
+	public Set<ShopForUser> getKnownShops(){
+		return knownShops;
 	}
 
 	@Override
