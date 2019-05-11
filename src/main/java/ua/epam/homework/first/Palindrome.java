@@ -20,32 +20,32 @@ public class Palindrome {
 		}
 	}
 
-	public static byte reverseByte(byte bytee){
+	public static byte reverse(byte bytee){
 		return reverseByteMap.get(bytee);
 	}
 
-	public static short reverseShort(short shortt){
+	public static short reverse(short shortt){
 		short mask = 0x00ff;
 		byte juniorByte = (byte)(shortt&mask);
-		byte elderByte =(byte)((shortt>>8 )&mask);
+		byte elderByte =(byte)(shortt>>>8 );
 
 		short result = 0;
-		result |= reverseByte(juniorByte);
+		result |= reverse(juniorByte);
 		result = (short)(result&mask);
 		result=(short)(result<<8);
-		result|=((short)reverseByte(elderByte))&mask;
+		result|=((short) reverse(elderByte))&mask;
 		return result;
 	}
 
-	public static int reverseInt(int integer){
+	public static int reverse(int integer){
 		int mask = 0xffff;
 		short juniorShort = (short)(integer&mask);
-		short elderShort =(short)((integer>>16 )&mask);
+		short elderShort =(short)(integer>>>16 );
 
 		int result = 0;
-		result |= reverseShort(juniorShort);
+		result |= reverse(juniorShort);
 		result=result<<16;
-		result|=((int)reverseShort(elderShort))&mask;
+		result|=((int) reverse(elderShort))&mask;
 		return result;
 	}
 
@@ -69,12 +69,18 @@ public class Palindrome {
 	}
 
 	public static void main(String[] args) {
-		int[][] data = findPalindromes();
+		/*int[][] data = findPalindromes();
 		for (int[] row:data){
 			for (int cell: row){
 				System.out.println(asString(cell));
 			}
-		}
+		}*/
+		int[] data = createPalindromes(691);
+
+			for (int cell: data){
+				System.out.println(asString(cell));
+			}
+
 	}
 	public static int findFirstBit(int in){
 		for (int bit = 0; bit <32 ; bit++) {
@@ -88,14 +94,14 @@ public class Palindrome {
 	public static int[] createPalindromes(int input){
 		int[] result = {};
 		if(input<65536){
-			int reverseInt = reverseInt(input);
+			int reverseInt = reverse(input);
 			int firstBitPosition = findFirstBit(reverseInt);
 			int avaliblePalindromes = firstBitPosition - (31 - firstBitPosition);
 			result = new int[avaliblePalindromes];
 			for (int i = 0; i <avaliblePalindromes ; i++) {
 				int resultInt = 0;
 				resultInt |= reverseInt;
-				resultInt = resultInt>>i;
+				resultInt = resultInt>>>i;
 				resultInt|= input;
 				result[i]=resultInt;
 			}
