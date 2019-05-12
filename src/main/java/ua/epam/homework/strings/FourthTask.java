@@ -4,9 +4,12 @@ package ua.epam.homework.strings;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class Fourth {
+public class FourthTask {
 	public static String replaceWordLengthWith(int length,String inputText, String replace){
-		Pattern pattern = Pattern.compile("^([a-zA-zА-Яа-я'іІїЇёЁ]{"+length+"})([ ,.;:?!])|([ ,.;:?!])([a-zA-zА-Яа-я'іІїЇёЁ]{"+length+"})([ ,.;:?!])|([ ,.;:?!])([a-zA-zА-Яа-я'іІїЇёЁ]{"+length+"})$");
+		if (length<=0){
+			throw new IllegalArgumentException("Length must be greater than zero ");
+		}
+		Pattern pattern = Pattern.compile("^([a-zA-zА-Яа-я'іІїЇёЁ]{"+length+"})([ ,.;:?!«»])|([ ,.;:?!«»])([a-zA-zА-Яа-я'іІїЇёЁ]{"+length+"})([ ,.;:?!«»])|([ ,.;:?!«»])([a-zA-zА-Яа-я'іІїЇёЁ]{"+length+"})$");
 		Matcher matcher = pattern.matcher(inputText);
 		if (matcher.find()){
 			return matcher.replaceAll("$3$6"+replace+"$2$5");

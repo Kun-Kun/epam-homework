@@ -2,8 +2,8 @@ package ua.epam.homework.strings;
 
 import java.util.Arrays;
 
-public class Third {
-	public static String findLongestPalindrome(String text){
+public class ThirdTask {
+	public static String findLongestPalindrome(String text) throws NullPointerException{
 		return Arrays.stream(text.replaceAll("\r","").split("\n")).filter(s -> {
 			String reversed = new StringBuilder(s).reverse().toString();
 			return reversed.equals(s);

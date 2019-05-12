@@ -1,17 +1,16 @@
 package ua.epam.homework.strings;
 
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
-
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-public class First {
+public class FirstTask {
 
-	public static List<String> sortByFrequencyCaseSensitive(List<String> listToSort, String text){
+	public static List<String> sortByFrequencyCaseSensitive(List<String> listToSort, String text) throws NullPointerException{
 		Map<String,Integer> wordFrequencyMap = listToSort
 				.stream()
+				.distinct()
 				.collect(Collectors.toMap(key -> key,val -> 0 ));
 		Pattern pattern = Pattern.compile("[a-zA-zА-Яа-я'іІїЇёЁ]+");
 		Matcher matcher = pattern.matcher(text);
@@ -31,11 +30,12 @@ public class First {
 				.collect(Collectors.toList());
 	}
 
-	public static List<String> sortByFrequency(List<String> listToSort, String text){
+	public static List<String> sortByFrequency(List<String> listToSort, String text) throws NullPointerException{
 		String lowerCaseText = text.toLowerCase();
 		Map<String,String> lowerCaseToInputMap = listToSort
 				.stream()
-				.collect(Collectors.toMap(key -> key.toLowerCase(),key->key ));
+				//.filter(s -> s!=null)
+				.collect(HashMap::new, (m,string)->m.put(string!=null ? string.toLowerCase() : null, string), HashMap::putAll);
 		List<String> lowerCaseInputList = new ArrayList<>(lowerCaseToInputMap.keySet());
 		List<String> lowerCaseOutputList = sortByFrequencyCaseSensitive(lowerCaseInputList,lowerCaseText);
 
@@ -51,7 +51,7 @@ public class First {
 		list.add("Образом");
 		list.add("процесс");
 		list.add("кадров");
-		List<String> sortedList = First.sortByFrequency(list,text);
+		List<String> sortedList = FirstTask.sortByFrequency(list,text);
 		for (String string:sortedList){
 			System.out.println(string);
 		}

@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.stream.Collectors;
 
-public class Second {
-	public static String sortWordByChar(String text, char charr){
+public class SecondTask {
+	public static String sortWordByChar(String text, char charr) throws NullPointerException{
 		return Arrays.stream(text.split(" ")).sorted(new Comparator<String>() {
 
 			@Override
